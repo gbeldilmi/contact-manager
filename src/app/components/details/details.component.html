@@ -1,0 +1,33 @@
+<div class="details">
+  <form (ngSubmit)="save()">
+    <div class="details-actions">
+      <input type="button" value="Back" (click)="back()" [disabled]="isEditing">
+      <input type="button" value="Edit" (click)="edit()" [disabled]="isEditing">
+      <input type="button" value="Delete" (click)="delete()" [disabled]="!isEditing">
+      <input type="button" value="Cancel" (click)="cancel()" [disabled]="!isEditing">
+      <input type="submit" value="Save" [disabled]="!isEditing">
+    </div>
+    <div class="details-content">
+      <label>
+        <span>First name:</span>
+        <input type="text" name="first-name" [(ngModel)]="contact.data.firstName" [disabled]="!isEditing">
+      </label>
+      <label>
+        <span>Last name:</span>
+        <input type="text" name="last-name" [(ngModel)]="contact.data.lastName" [disabled]="!isEditing">
+      </label>
+      <label>
+        <span>Phone:</span>
+        <input type="text" name="phone" [(ngModel)]="contact.data.phone" [disabled]="!isEditing">
+      </label>
+      <label>
+        <span>Email:</span>
+        <input type="text" name="email" [(ngModel)]="contact.data.email" [disabled]="!isEditing">
+      </label>
+      <label>
+        <span>Birthday:</span>
+        <input type="text" name="birthday" [(ngModel)]="contact.data.birthday" [disabled]="!isEditing">
+      </label>
+    </div>
+  </form>
+</div>

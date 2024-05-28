@@ -1,0 +1,20 @@
+<div class="export-container">
+  <form (ngSubmit)="exportContacts()">
+    <div class="export-actions">
+      <input type="button" value="Back" (click)="back()">
+      <input type="submit" value="Export">
+    </div>
+    <div class="export-content">
+      <label>
+        <span>Format:</span>
+        <select name="format" [(ngModel)]="exportFormat">
+          <option value="json">JSON</option>
+          <option value="csv">CSV</option>
+          <option value="sql">SQL</option>
+          <option value="vcf">VCF (vcard)</option>
+        </select>
+      </label>
+      <p>{{ out }}</p>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,42 @@
+<div class="list-container">
+  <div class="list-actions">
+    <input type="button" value="Add a new contact" (click)="newContact()">
+    <input type="button" value="Import contacts" (click)="import()">
+    <input type="button" value="Export contacts" (click)="export()">
+    <label>
+      <span>Sort by:</span>
+      <select name="sort" [(ngModel)]="sortParams.field" (change)="sort()">
+        <option value="firstName">First name</option>
+        <option value="lastName">Last name</option>
+        <option value="phone">Phone</option>
+        <option value="email">Email</option>
+        <option value="birthday">Birthday</option>
+      </select>
+    </label>
+    <label>
+      <input type="radio" name="order" value="asc" [(ngModel)]="sortParams.order" (change)="sort()">
+      <span>Ascending</span>
+    </label>
+    <label>
+      <input type="radio" name="order" value="desc" [(ngModel)]="sortParams.order" (change)="sort()">
+      <span>Descending</span>
+    </label>
+  </div>
+  <table class="list-content">
+    <thead class="list-header" *ngIf="contacts.length != 0">
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Phone</th>
+      <th>Email</th>
+      <th>Birthday</th>
+    </thead>
+    <tr class="list-item" *ngFor="let c of contacts" (click)="details(c.id)">
+      <td>{{ c.data.firstName }}</td>
+      <td>{{ c.data.lastName }}</td>
+      <td>{{ c.data.phone }}</td>
+      <td>{{ c.data.email }}</td>
+      <td>{{ c.data.birthday }}</td>
+    </tr>
+  </table>
+  <p *ngIf="contacts.length == 0">No contact</p>
+</div>

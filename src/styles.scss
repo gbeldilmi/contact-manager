@@ -1,0 +1,134 @@
+/* Colors */
+$background-color: #dce0d9;
+$foreground-color: #393e41;
+$accent-color: #e94f37;
+
+/* Global styles */
+* {
+  background-color: $background-color;
+  color: $foreground-color;
+  padding: 0;
+  margin: 0;
+  /*border: 1px solid purple; /* Debug */
+}
+
+/* Minimum responsive support and typography */
+:root {
+  // under specific width, we prefer to navigate manually
+  // rather than having a responsive layout that is not usable
+  min-width: 800px;
+  // typography
+  font-family: 'Arial', sans-serif;
+  font-size: 14px; // define rem
+  line-height: 1.6;
+}
+
+/* Layout */
+body {
+  // small padding to avoid content to touch the border
+  padding: 1rem;
+}
+
+/* Form and clickable elements */
+input, select {
+  padding: 0.2rem;
+  border: 0.2rem solid $foreground-color;
+  &:focus, &:hover {
+    color: $accent-color;
+    border: 0.2rem solid $accent-color;
+  }
+  &:disabled {
+    border: none;
+    color: $foreground-color;
+  }
+}
+input {
+  &[type="submit"], &[type="button"] {
+    &:disabled {
+      display: none;
+    }
+  }
+}
+
+/* Forms layout */
+label, input[type="submit"], input[type="button"] {
+  display: block;
+}
+label {
+  display: flex;
+  justify-content: space-between; // space between span and input
+}
+
+/* Global components styles */
+.details,
+.list,
+.import,
+.export {
+  &-actions {
+    // Display buttons in a row
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    // space around
+    margin: 1rem 0;
+    padding: 1rem 0;
+    //border to separate from content
+    border-top: 0.2rem solid $accent-color;
+    border-bottom: 0.2rem solid $accent-color;
+    // space between buttons
+    input, label {
+      margin-right: 1rem;
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}
+.details,
+.import,
+.export {
+  &-content {
+    // Display in a column
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    // space around when too wide
+    max-width: 37rem;
+    margin: auto;
+    // not too small
+    input[type="text"], select {
+      width: 20rem;
+    }
+  }
+}
+
+/* List component styles */
+.list {
+  &-content {
+    // display 
+    width: 100%;
+    border-collapse: collapse; // avoid double border
+    td {
+      // avoid long text to overflow
+      word-wrap: break-word;
+      word-break: break-all;
+    }
+  }
+  &-header {
+    // header at the top
+    border-bottom: 0.2rem solid $foreground-color;
+    th {
+      // sticky header
+      position: sticky;
+      top: 0;
+    }
+  }
+  &-item {
+    // separate lines
+    border-top: 0.1rem solid $foreground-color;
+  }
+  &-header th, &-item td {
+    // padding beetwen lines to feel more comfortable
+    padding: 0.3rem 0;
+  }
+}

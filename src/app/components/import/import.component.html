@@ -1,0 +1,15 @@
+<div class="import-container">
+  <form (ngSubmit)="importContacts()">
+    <div class="import-actions">
+      <input type="button" value="Back" (click)="back()" />
+      <input type="submit" value="Import" />
+    </div>
+    <div class="import-content">
+      <label>
+        <span>File (Supported file types: .csv)</span>
+        <input type="file" (change)="loadFile($event)" accept=".csv" />
+      </label>
+      <p>{{ out }}</p>
+    </div>
+  </form>
+</div>
